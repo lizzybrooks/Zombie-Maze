@@ -44,6 +44,6 @@ function city(){
 
 function car(){
   strokeWeight(10);
-  stroke('blue');
+  stroke('pink');
   ellipse(20,50,10,10);
 }
