@@ -9,7 +9,7 @@ function setup() {
 
 function draw() {
   createCanvas(100 + x, 500);
-  background("blue");
+  background("red");
   rect(50,50, 60 + z, 60 + y2);
   rect(50+x,50+y,50,50);
   rect(200,50,50,50);
