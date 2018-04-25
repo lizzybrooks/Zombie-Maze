@@ -5,7 +5,7 @@ function setup() {
   createCanvas(800, 600);
   background(200);
   city(x,y);
-  car(x,y);
+  car();
 }
 
 function draw() {
@@ -84,5 +84,5 @@ function city(x,y){//make all cordinates x100,y100
 function car(x,y){
   strokeWeight(10);
   stroke('blue');
-  ellipse(x,y,10,10);
+  ellipse(20,50,10,10);
 }
