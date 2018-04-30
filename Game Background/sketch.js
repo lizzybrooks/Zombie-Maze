@@ -1,11 +1,19 @@
-let x = 0;
-let y = 0;
+let x2 = 0;
+let y3 = 0;
 let z = 0;
 let y2 = 0;
-let canvasx = 500+x;
-let canvasy = 500+y;
+let x = 50;
+let y = 50;
+ let canvasx;
+ let canvasy;
+ let sprites=[];
+ let a;
+
 
 function setup() {
+  canvasx = 500+x2;
+  canvasy = 500+y3;
+  a = new sprite (x,y);
 }
 
 function draw() {
@@ -16,6 +24,9 @@ function draw() {
   fill("blue");
   rect(200,50,50,50);
   //function keyPressed();
+  a.drawSprite();
+  a.moveSprite();
+  a.canvasSprite();
 }
 
 // function keyPressed() {
@@ -29,19 +40,32 @@ function draw() {
 // }
 
 class sprite {
+
+  constructor(x,y,canvasx,canvasy){
+		this.x = x;
+    		this.y = y;
+        this.canvasx = canvasx;
+        this.canvasy = canvasy;
+      }
+
   drawSprite(){
         fill("black");
-    		rect(50,50,50,50);
+    		rect(this.x,this.y,50,50);
 	}
 
 	//update the location of the ball, so it moves across the screen
 	moveSprite(){
 		 if(keyIsDown(RIGHT_ARROW)){
-       this.x = this.x + 10;
+       this.x = this.x + 20;
      }
    }
 
-
+  canvasSprite(){
+    if(this.x>=this.canvasx && this.y>=this.canvasy){
+      x2 = x2+30;
+      y3 = y3+30;
+    }
+  }
 }
 //function keyPressed() {
   //if (keyCode === DOWN_ARROW){
