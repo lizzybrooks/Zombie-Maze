@@ -1,32 +1,32 @@
-let x2 = 0;
-let y3 = 0;
-let z = 0;
-let y2 = 0;
+// let x2 = 0;
+// let y3 = 0;
+// let z = 0;
+// let y2 = 0;
 let x = 50;
 let y = 50;
- let canvasx;
- let canvasy;
- let sprites=[];
- let a;
+let canvasX = 500;
+let canvasY = 500;
+let sprites=[];
+let a;
 
 
 function setup() {
-  canvasx = 500+x2;
-  canvasy = 500+y3;
   a = new sprite (x,y);
 }
 
 function draw() {
-  createCanvas(canvasx, canvasy);
+  createCanvas(canvasX, canvasY);
   background("red");
   fill("pink");
-  rect(50,50, 60 + z, 60 + y2);
+  rect(50,50, 60, 60);
   fill("blue");
   rect(200,50,50,50);
+  print(x);
   //function keyPressed();
   a.drawSprite();
   a.moveSprite();
   a.canvasSprite();
+  a.canvasSpriteY();
 }
 
 // function keyPressed() {
@@ -41,11 +41,11 @@ function draw() {
 
 class sprite {
 
-  constructor(x,y,canvasx,canvasy){
+  constructor(x,y){
 		this.x = x;
     		this.y = y;
-        this.canvasx = canvasx;
-        this.canvasy = canvasy;
+        // this.canvasx = canvasX;
+        // this.canvasy = canvasY;
       }
 
   drawSprite(){
@@ -56,17 +56,31 @@ class sprite {
 	//update the location of the ball, so it moves across the screen
 	moveSprite(){
 		 if(keyIsDown(RIGHT_ARROW)){
-       this.x = this.x + 20;
+       this.x = this.x + 15;
+     }
+     else if (keyIsDown(LEFT_ARROW)){
+       this.x = this.x - 15;
+     }
+     else if (keyIsDown(DOWN_ARROW)){
+       this.y = this.y + 15;
+     }
+     else if (keyIsDown(UP_ARROW)){
+       this.y = this.y - 15;
+    }
+   }
+   canvasSprite(){
+     if(this.x+50>=canvasX){
+       canvasX = canvasX + 30;
      }
    }
-
-  canvasSprite(){
-    if(this.x>=this.canvasx && this.y>=this.canvasy){
-      x2 = x2+30;
-      y3 = y3+30;
-    }
-  }
+   canvasSpriteY(){
+     if(this.y+50>=canvasY){
+       canvasY = canvasY + 30;
+     }
+   }
 }
+
+
 //function keyPressed() {
   //if (keyCode === DOWN_ARROW){
   //  y = y + 30;
