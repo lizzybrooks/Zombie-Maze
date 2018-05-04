@@ -30,35 +30,6 @@ if (keyCode === LEFT_ARROW){
   }
 }
 
-// class Car {
-// 	//every ball needs an x value, a y value, and a speed
-// 	constructor(x,y, speed){
-// 		this.x = x;
-//     		this.y = y;
-// 	}
-//
-// 	// draw a ball on the screen at x,y
-// 	drawCar(){
-//     		stroke(0);
-//         	car();
-// 	}
-//
-// 	//update the location of the ball, so it moves across the screen
-// 	moveCar(){
-//
-// 		this.x = this.x;
-// 		this.y = this.y+.5;
-// 	}
-//
-// 	// //if the ball hits the paddle, change the speed value to negative (send it in the opposite direction)
-//   // 	bounceCar(){
-//   //   		if (this.x >= mouseX-3 && this.x <= mouseX+3 && this.y > mouseY-40 && this.y < mouseY+40){
-//   //     			this.speed = -this.speed;
-//   //           point=point+1;
-//   //           stroke(paddleC[int(random(0, paddleC.length))]);
-//   //   		}
-//   // 	}
-// }
 
 function city(x,y){//make all cordinates x100,y100
   strokeWeight(30);
