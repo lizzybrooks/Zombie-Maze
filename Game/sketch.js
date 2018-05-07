@@ -73,6 +73,7 @@ class sprite {
        canvasY = canvasY + 30;
      }
    }
+   //figuring out how to make the wall an obstacle
    wallSprite(){
      if(this.x>=300 && this.x<=313 && this.y>=300 && this.y<=21){
 
