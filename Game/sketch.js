@@ -1,14 +1,29 @@
-let x = 100;
-let y = 100;
+let x = 50;
+let y = 40;
+let canvasX = 500;
+let canvasY = 500;
+let sprites=[];
+let a;
+let w = 100;
+let z = 100;
+
 
 function setup() {
-  createCanvas(1000, 1000);
-  background(200);
-  city(x,y);
-  car();
+  a = new sprite (x,y);
 }
 
 function draw() {
+createCanvas(canvasX, canvasY);
+ background(200);
+ city(w,z);
+ strokeWeight(4);
+ // print(x);
+ //function keyPressed();
+ a.drawSprite();
+ a.moveSprite();
+ a.canvasSprite();
+ a.canvasSpriteY();
+
   //white background rectangle
   noStroke();
   fill(255);
@@ -16,47 +31,81 @@ function draw() {
   //text showing mouse coordinates
   fill(255, 0, 0);
   text("("+mouseX + ", " + mouseY+")", 5, 15);
-
 }
 
-function keyPressed(){
-if (keyCode === LEFT_ARROW){
+class sprite {
 
+  constructor(x,y){
+		this.x = x;
+    		this.y = y;
+        // this.canvasx = canvasX;
+        // this.canvasy = canvasY;
+      }
 
-  }
-  else if (keyCode === RIGHT_ARROW){
+  drawSprite(){
+        strokeWeight(2);
+        fill("blue");
+    		rect(this.x,this.y,20,20);
+	}
 
+	//update the location of the ball, so it moves across the screen
+	moveSprite(){
+		 if(keyIsDown(RIGHT_ARROW)){
+       this.x = this.x + 10;
+     }
+     else if (keyIsDown(LEFT_ARROW)){
+       this.x = this.x - 10;
+     }
+     else if (keyIsDown(DOWN_ARROW)){
+       this.y = this.y + 10;
+     }
+     else if (keyIsDown(UP_ARROW)){
+       this.y = this.y - 10;
+    }
+   }
+   canvasSprite(){
+     if(this.x+50>=canvasX){
+       canvasX = canvasX + 30;
+     }
+   }
+   canvasSpriteY(){
+     if(this.y+50>=canvasY){
+       canvasY = canvasY + 30;
+     }
+   }
+   wallSprite(){
+     if(this.x>=300 && this.x<=313 && this.y>=300 && this.y<=21){
 
-  }
+     }
+   }
 }
 
-
-function city(x,y){//make all cordinates x100,y100
+function city(w,z){//w= 100, z= 100
   strokeWeight(30);
   stroke('black')
   //top
-  line(x-100,y-100,x+900,y-100);//top side line
-  line(x+900,y-100,x+900,y+900);//right side line
-  line(x-100,y,x+100,y);
-  line(x+200,y-100,x+200,y);
-  line(x+200,y,x+450,y);
-  line(x+570,y-100,x+570,y);
-  line(x+570,y,x+800,y);
-  line(x,y+100,x+600,y+100);
-  line(x+600,y+100,x+600,y+250);
-  line(x+700,y+100,x+700,y+250);
-  line(x+700,y+250,x+800,y+250);
-  line(x+800,y+250,x+800,y+500);
-  line(x+800,y+500,x+700,y+500);
+  line(w-100,z-100,w+900,z-100);//top side line
+  line(w+900,z-100,w+900,z+900);//right side line
+  line(w-100,z,w+100,z);
+  line(w+200,z-100,w+200,z);
+  line(w+200,z,w+450,z);
+  line(w+570,z-100,w+570,z);
+  line(w+570,z,w+800,z);
+  line(w,z+100,w+600,z+100);
+  line(w+600,z+100,w+600,z+250);
+  line(w+700,z+100,w+700,z+250);
+  line(w+700,z+250,w+800,z+250);
+  line(w+800,z+250,w+800,z+500);
+  line(w+800,z+500,w+700,z+500);
 //part C
-  line(x+800,y+100,x+800,y+170);
-  line(x+800,y+170,x+900,y+170);
-  line(x-100,y+200,x+100,y+200);
-  line(x-100,y-100,x-100,y+900);//left side line
-  line(200,300,200,450);
-  line(270,450,100,450);
-  line(100,450,100,390);
-  line(270,550,100,550);
+  line(w+800,z+100,w+800,z+170);
+  line(w+800,z+170,w+900,z+170);
+  line(w-100,z+200,w+100,z+200);
+  line(w-100,z-100,w-100,z+900);//left side line
+  line(w+100,z+200,w+100,z+350);
+  line(w+170,z+350,w,z+350);
+  line(w,z+350,w,z+290);
+  line(w+170,z+450,w,z+450);
 //part B
   line(500,200,500,450);
   line(500,450,800,450);
@@ -79,10 +128,4 @@ function city(x,y){//make all cordinates x100,y100
   line(300,800,300,1000);
   line(300,800,100,800);
 
-}
-
-function car(x,y){
-  strokeWeight(10);
-  stroke('blue');
-  ellipse(20,50,10,10);
 }
